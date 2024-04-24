@@ -4,3 +4,12 @@
 **/amd64/
 **/Debug/
 **/ipch/
+
+.qmake.stash
+
+**/source/*.o
+**/source/moc_*.cpp
+**/source/moc_*.h
+**/source/Makefile
+**/mousebuttons
+**/send_keys_test_app
