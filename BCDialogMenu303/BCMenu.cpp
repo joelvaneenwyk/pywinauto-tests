@@ -82,7 +82,7 @@ Win32Type IsShellType()
 
 #if defined(_MSC_VER)
 #pragma warning(push)
-#pragma warning(disable:4996) // truncation of constant value
+#pragma warning(disable:4996) // GetVersionExW is deprecated
 #endif
 	winVer=GetVersion();
 	if(winVer<0x80000000){/*NT */
@@ -112,7 +112,7 @@ Win32Type IsShellType()
 			free(osvi);
 		}
 	}
-#if _MSC_VER >= 1200
+#if defined(_MSC_VER)
 #pragma warning(pop)
 #endif
 	return ShellType;

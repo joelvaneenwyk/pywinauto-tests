@@ -90,7 +90,7 @@ BOOL CListViewEx::SetFullRowSel(BOOL bFullRowSel)
 	return(bRet);
 }
 
-BOOL CListViewEx::GetFullRowSel()
+BOOL CListViewEx::GetFullRowSel() const
 {
 	return(m_bFullRowSel);
 }
@@ -368,7 +368,14 @@ LRESULT CListViewEx::OnSetImageList(WPARAM wParam, LPARAM lParam)
 
 	OSVERSIONINFO info;
 	info.dwOSVersionInfoSize = sizeof(info);
+#if defined(_MSC_VER)
+#pragma warning(push)
+#pragma warning(disable:4996) // GetVersionExW is deprecated
+#endif
 	VERIFY(::GetVersionEx(&info));
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#endif
 
 	if( (int) wParam == LVSIL_STATE && info.dwMajorVersion < 4)
 	{
