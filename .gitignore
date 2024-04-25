@@ -2,6 +2,8 @@
 
 .vs/
 
+*.vcxproj.user
+
 *.opensdf
 *.sdf
 **/Release/
