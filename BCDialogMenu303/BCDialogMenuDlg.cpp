@@ -211,7 +211,7 @@ void CBCDialogMenuDlg::OnMeasureItem(int nIDCtl, LPMEASUREITEMSTRUCT lpMeasureIt
 {
 	BOOL setflag=FALSE;
 	if(lpMeasureItemStruct->CtlType==ODT_MENU){
-		if(IsMenu((HMENU)lpMeasureItemStruct->itemID)&&BCMenu::IsMenu((HMENU)lpMeasureItemStruct->itemID)){
+		if(IsMenu((HMENU)(size_t)lpMeasureItemStruct->itemID)&&BCMenu::IsMenu((HMENU)(size_t)lpMeasureItemStruct->itemID)){
 			m_menu.MeasureItem(lpMeasureItemStruct);
 			setflag=TRUE;
 		}

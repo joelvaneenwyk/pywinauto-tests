@@ -79,7 +79,11 @@ Win32Type IsShellType()
 	Win32Type  ShellType;
 	DWORD winVer;
 	OSVERSIONINFO *osvi;
-	
+
+#if defined(_MSC_VER)
+#pragma warning(push)
+#pragma warning(disable:4996) // truncation of constant value
+#endif
 	winVer=GetVersion();
 	if(winVer<0x80000000){/*NT */
 		ShellType=WinNT3;
@@ -108,6 +112,9 @@ Win32Type IsShellType()
 			free(osvi);
 		}
 	}
+#if _MSC_VER >= 1200
+#pragma warning(pop)
+#endif
 	return ShellType;
 }
 
@@ -1030,8 +1037,8 @@ BOOL BCMenu::AppendODMenuW(wchar_t *lpstrText,UINT nFlags,UINT nID,
 	else if(!(nFlags & MF_OWNERDRAW))nFlags |= MF_OWNERDRAW;
 	
 	if(nFlags & MF_POPUP){
-		m_AllSubMenus.Add((HMENU)nID);
-		m_SubMenus.Add((HMENU)nID);
+		m_AllSubMenus.Add((HMENU)(size_t)nID);
+		m_SubMenus.Add((HMENU)(size_t)nID);
 	}
 	
 	BCMenuData *mdata = new BCMenuData;
@@ -1081,8 +1088,8 @@ BOOL BCMenu::AppendODMenuW(wchar_t *lpstrText,UINT nFlags,UINT nID,
 	else if(!(nFlags & MF_OWNERDRAW))nFlags |= MF_OWNERDRAW;
 	
 	if(nFlags & MF_POPUP){
-		m_AllSubMenus.Add((HMENU)nID);
-		m_SubMenus.Add((HMENU)nID);
+		m_AllSubMenus.Add((HMENU)(size_t)nID);
+		m_SubMenus.Add((HMENU)(size_t)nID);
 	}
 	
 	BCMenuData *mdata = new BCMenuData;
@@ -1135,8 +1142,8 @@ BOOL BCMenu::InsertODMenuW(UINT nPosition,wchar_t *lpstrText,UINT nFlags,UINT nI
 			menustart=GetMenuStart();
 			if(nPosition<(UINT)menustart)menustart=0;
 		}
-		m_AllSubMenus.Add((HMENU)nID);
-		m_SubMenus.InsertAt(nPosition,(HMENU)nID);
+		m_AllSubMenus.Add((HMENU)(size_t)nID);
+		m_SubMenus.InsertAt(nPosition,(HMENU)(size_t)nID);
 	}
 
 	//Stephane Clog suggested adding this, believe it or not it's in the help 
@@ -1192,8 +1199,8 @@ BOOL BCMenu::InsertODMenuW(UINT nPosition,wchar_t *lpstrText,UINT nFlags,UINT nI
 	else if(!(nFlags & MF_OWNERDRAW))nFlags |= MF_OWNERDRAW;
 	
 	if(nFlags & MF_POPUP){
-		m_AllSubMenus.Add((HMENU)nID);
-		m_SubMenus.InsertAt(nPosition,(HMENU)nID);
+		m_AllSubMenus.Add((HMENU)(size_t)nID);
+		m_SubMenus.InsertAt(nPosition,(HMENU)(size_t)nID);
 	}
 	
 	//Stephane Clog suggested adding this, believe it or not it's in the help 
@@ -1417,7 +1424,7 @@ BCMenuData *BCMenu::NewODMenu(UINT pos,UINT nFlags,UINT nID,CString string)
 	mdata->nFlags = nFlags;
 	mdata->nID = nID;
 	
-//	if(nFlags & MF_POPUP)m_AllSubMenus.Add((HMENU)nID);
+//	if(nFlags & MF_POPUP)m_AllSubMenus.Add((HMENU)(size_t)nID);
 		
 	if (nFlags&MF_OWNERDRAW){
 		ASSERT(!(nFlags&MF_STRING));
@@ -1697,7 +1704,7 @@ BOOL BCMenu::LoadMenu(LPCTSTR lpszResourceName)
 			// Append it to the top of the stack:
 			
 			m_Stack[m_Stack.GetUpperBound()]->AppendODMenuW(szCaption,uFlags,
-				(UINT)pSubMenu->m_hMenu, -1);
+				(UINT)(size_t)pSubMenu->m_hMenu, -1);
 			m_Stack.Add(pSubMenu);
 			m_StackEnd.Add(FALSE);
 		}
@@ -1722,7 +1729,7 @@ BOOL BCMenu::LoadMenu(LPCTSTR lpszResourceName)
 		if(GetSubMenu(i)){
 			m_MenuList[i]->nFlags=MF_POPUP|MF_BYPOSITION;
 			ModifyMenu(i,MF_POPUP|MF_BYPOSITION,
-				(UINT)GetSubMenu(i)->m_hMenu,str);
+				(UINT)(size_t)GetSubMenu(i)->m_hMenu,str);
 		}
 		else{
 			m_MenuList[i]->nFlags=MF_STRING|MF_BYPOSITION;
@@ -1775,7 +1782,7 @@ void BCMenu::RemoveTopLevelOwnerDraw(void)
 			if(GetSubMenu(i)){
 				m_MenuList[j]->nFlags=MF_POPUP|MF_BYPOSITION;
 				ModifyMenu(i,MF_POPUP|MF_BYPOSITION,
-					(UINT)GetSubMenu(i)->m_hMenu,str);
+					(UINT)(size_t)GetSubMenu(i)->m_hMenu,str);
 			}
 		}
 	}
@@ -1973,7 +1980,7 @@ void BCMenu::SynchronizeMenu(void)
 		mdata=NULL;
 		state=GetMenuState(j,MF_BYPOSITION);
 		if(state&MF_POPUP){
-			submenu=(UINT)GetSubMenu(j)->m_hMenu;
+			submenu=(UINT)(size_t)GetSubMenu(j)->m_hMenu;
 			mdata=FindMenuList(submenu);
 			GetMenuString(j,string,MF_BYPOSITION);
 			if(!mdata)mdata=NewODMenu(j,
@@ -2293,7 +2300,7 @@ BOOL BCMenu::AddBitmapToImageList(CImageList *bmplist,UINT nResourceID)
 
 	// O.S.
 	if (m_bDynIcons){
-		bmplist->Add((HICON)nResourceID);
+		bmplist->Add((HICON)(size_t)nResourceID);
 		bReturn=TRUE;
 	}
 	else{
@@ -2601,7 +2608,7 @@ BOOL BCMenu::RemoveMenu(UINT uiId,UINT nFlags)
 				int num = pSubMenu->GetMenuItemCount();
 				for(int i=num-1;i>=0;--i)pSubMenu->RemoveMenu(i,MF_BYPOSITION);
 				for(int i=(int)m_MenuList.GetUpperBound();i>=0;i--){
-					if(m_MenuList[i]->nID==(UINT)pSubMenu->m_hMenu){
+					if(m_MenuList[i]->nID==(UINT)(size_t)pSubMenu->m_hMenu){
 						delete m_MenuList.GetAt(i);
 						m_MenuList.RemoveAt(i);
 						break;
@@ -2664,7 +2671,7 @@ BOOL BCMenu::DeleteMenu(UINT uiId,UINT nFlags)
 				int num = pSubMenu->GetMenuItemCount();
 				for(int i=num-1;i>=0;--i)pSubMenu->DeleteMenu(i,MF_BYPOSITION);
 				for(int i=(int)m_MenuList.GetUpperBound();i>=0;i--){
-					if(m_MenuList[i]->nID==(UINT)pSubMenu->m_hMenu){
+					if(m_MenuList[i]->nID==(UINT)(size_t)pSubMenu->m_hMenu){
 						delete m_MenuList.GetAt(i);
 						m_MenuList.RemoveAt(i);
 						break;
@@ -2774,7 +2781,7 @@ BCMenu* BCMenu::AppendODPopupMenuW(wchar_t *lpstrText)
 	pSubMenu->checkmaps=checkmaps;
 	pSubMenu->checkmapsshare=TRUE;
 	pSubMenu->CreatePopupMenu();
-	AppendODMenuW(lpstrText,MF_POPUP,(UINT)pSubMenu->m_hMenu, -1);
+	AppendODMenuW(lpstrText,MF_POPUP,(UINT)(size_t)pSubMenu->m_hMenu, -1);
 	return pSubMenu;
 }
 
@@ -2851,7 +2858,7 @@ BCMenu* BCMenu::GetSubBCMenu(wchar_t* lpszSubMenuName)
 	BCMenuData *mdata;
 	mdata=FindMenuOption(lpszSubMenuName);
 	if(mdata){
-		HMENU bchmenu=(HMENU)mdata->nID;
+		HMENU bchmenu=(HMENU)(size_t)mdata->nID;
 		CMenu *ptr=FromHandle(bchmenu);
 		BOOL flag=ptr->IsKindOf(RUNTIME_CLASS( BCMenu ));
 		if(flag)return((BCMenu *)ptr);
