@@ -13,7 +13,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TrayMenu", "TrayMenu\TrayMe
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BCDialogMenu", "BCDialogMenu303\BCDialogMenu.vcxproj", "{02AF49AE-C976-A9E8-C97B-E6E7651CD3FE}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RowList", "rowlist\rowlist.vcxproj", "{736AE1A6-14A7-490D-A8B6-8EB0B6A18969}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RowListView", "RowListView\RowListView.vcxproj", "{736AE1A6-14A7-490D-A8B6-8EB0B6A18969}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfControls", "WpfControls\WpfControls.csproj", "{7BFFF9CE-4D9D-4031-AC65-29391D21E2A6}"
 EndProject
