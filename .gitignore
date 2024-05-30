@@ -4,6 +4,8 @@
 
 /.sarif/
 /target/
+/bin/
+/build/
 
 .idea/
 
