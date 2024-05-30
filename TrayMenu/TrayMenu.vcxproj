@@ -24,7 +24,7 @@
     <RootNamespace>TrayMenu</RootNamespace>
     <Keyword>MFCProj</Keyword>
   </PropertyGroup>
-  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <Import Condition="Exists('$(VCTargetsPath)\Microsoft.Cpp.Default.props')" Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseOfMfc>Dynamic</UseOfMfc>
@@ -79,105 +79,7 @@
     <UseOfMfc>Static</UseOfMfc>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
-  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
-  <ImportGroup Label="ExtensionSettings">
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets">
-    <Import Project="$(LocalAppData)\Microsoft\VisualStudio\10.0\Microsoft.Cpp.$(Platform).user.props" Condition="'$(Configuration)|$(Platform)'=='Release|Win32' and (exists('$(LocalAppData)\Microsoft\VisualStudio\10.0\Microsoft.Cpp.$(Platform).user.props'))" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets">
-    <Import Project="$(VCTargetsPath)\Microsoft.CPP.UpgradeFromVC60.props" Condition="'$(Configuration)|$(Platform)'=='Release|Win32' and (exists('$(VCTargetsPath)\Microsoft.CPP.UpgradeFromVC60.props'))" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets">
-    <Import Project="$(LocalAppData)\Microsoft\VisualStudio\10.0\Microsoft.Cpp.$(Platform).user.props" Condition="'$(Configuration)|$(Platform)'=='Release|X64' and (exists('$(LocalAppData)\Microsoft\VisualStudio\10.0\Microsoft.Cpp.$(Platform).user.props'))" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets">
-    <Import Project="$(VCTargetsPath)\Microsoft.CPP.UpgradeFromVC60.props" Condition="'$(Configuration)|$(Platform)'=='Release|X64' and (exists('$(VCTargetsPath)\Microsoft.CPP.UpgradeFromVC60.props'))" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets">
-    <Import Project="$(LocalAppData)\Microsoft\VisualStudio\10.0\Microsoft.Cpp.$(Platform).user.props" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' and (exists('$(LocalAppData)\Microsoft\VisualStudio\10.0\Microsoft.Cpp.$(Platform).user.props'))" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets">
-    <Import Project="$(VCTargetsPath)\Microsoft.CPP.UpgradeFromVC60.props" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' and (exists('$(VCTargetsPath)\Microsoft.CPP.UpgradeFromVC60.props'))" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets">
-    <Import Project="$(LocalAppData)\Microsoft\VisualStudio\10.0\Microsoft.Cpp.$(Platform).user.props" Condition="'$(Configuration)|$(Platform)'=='Debug|X64' and (exists('$(LocalAppData)\Microsoft\VisualStudio\10.0\Microsoft.Cpp.$(Platform).user.props'))" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets">
-    <Import Project="$(VCTargetsPath)\Microsoft.CPP.UpgradeFromVC60.props" Condition="'$(Configuration)|$(Platform)'=='Debug|X64' and (exists('$(VCTargetsPath)\Microsoft.CPP.UpgradeFromVC60.props'))" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets">
-    <Import Project="$(LocalAppData)\Microsoft\VisualStudio\10.0\Microsoft.Cpp.$(Platform).user.props" Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32' and (exists('$(LocalAppData)\Microsoft\VisualStudio\10.0\Microsoft.Cpp.$(Platform).user.props'))" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets">
-    <Import Project="$(VCTargetsPath)\Microsoft.CPP.UpgradeFromVC60.props" Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32' and (exists('$(VCTargetsPath)\Microsoft.CPP.UpgradeFromVC60.props'))" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets">
-    <Import Project="$(LocalAppData)\Microsoft\VisualStudio\10.0\Microsoft.Cpp.$(Platform).user.props" Condition="'$(Configuration)|$(Platform)'=='Debug Static|X64' and (exists('$(LocalAppData)\Microsoft\VisualStudio\10.0\Microsoft.Cpp.$(Platform).user.props'))" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets">
-    <Import Project="$(VCTargetsPath)\Microsoft.CPP.UpgradeFromVC60.props" Condition="'$(Configuration)|$(Platform)'=='Debug Static|X64' and (exists('$(VCTargetsPath)\Microsoft.CPP.UpgradeFromVC60.props'))" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets">
-    <Import Project="$(LocalAppData)\Microsoft\VisualStudio\10.0\Microsoft.Cpp.$(Platform).user.props" Condition="'$(Configuration)|$(Platform)'=='Release Static|Win32' and (exists('$(LocalAppData)\Microsoft\VisualStudio\10.0\Microsoft.Cpp.$(Platform).user.props'))" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets">
-    <Import Project="$(VCTargetsPath)\Microsoft.CPP.UpgradeFromVC60.props" Condition="'$(Configuration)|$(Platform)'=='Release Static|Win32' and (exists('$(VCTargetsPath)\Microsoft.CPP.UpgradeFromVC60.props'))" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets">
-    <Import Project="$(LocalAppData)\Microsoft\VisualStudio\10.0\Microsoft.Cpp.$(Platform).user.props" Condition="'$(Configuration)|$(Platform)'=='Release Static|X64' and (exists('$(LocalAppData)\Microsoft\VisualStudio\10.0\Microsoft.Cpp.$(Platform).user.props'))" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets">
-    <Import Project="$(VCTargetsPath)\Microsoft.CPP.UpgradeFromVC60.props" Condition="'$(Configuration)|$(Platform)'=='Release Static|X64' and (exists('$(VCTargetsPath)\Microsoft.CPP.UpgradeFromVC60.props'))" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets">
-    <Import Project="$(LocalAppData)\Microsoft\VisualStudio\10.0\Microsoft.Cpp.$(Platform).user.props" Condition="'$(Configuration)|$(Platform)'=='Unicode Debug|Win32' and (exists('$(LocalAppData)\Microsoft\VisualStudio\10.0\Microsoft.Cpp.$(Platform).user.props'))" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets">
-    <Import Project="$(VCTargetsPath)\Microsoft.CPP.UpgradeFromVC60.props" Condition="'$(Configuration)|$(Platform)'=='Unicode Debug|Win32' and (exists('$(VCTargetsPath)\Microsoft.CPP.UpgradeFromVC60.props'))" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets">
-    <Import Project="$(LocalAppData)\Microsoft\VisualStudio\10.0\Microsoft.Cpp.$(Platform).user.props" Condition="'$(Configuration)|$(Platform)'=='Unicode Debug|X64' and (exists('$(LocalAppData)\Microsoft\VisualStudio\10.0\Microsoft.Cpp.$(Platform).user.props'))" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets">
-    <Import Project="$(VCTargetsPath)\Microsoft.CPP.UpgradeFromVC60.props" Condition="'$(Configuration)|$(Platform)'=='Unicode Debug|X64' and (exists('$(VCTargetsPath)\Microsoft.CPP.UpgradeFromVC60.props'))" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets">
-    <Import Project="$(LocalAppData)\Microsoft\VisualStudio\10.0\Microsoft.Cpp.$(Platform).user.props" Condition="'$(Configuration)|$(Platform)'=='Unicode Debug Static|Win32' and (exists('$(LocalAppData)\Microsoft\VisualStudio\10.0\Microsoft.Cpp.$(Platform).user.props'))" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets">
-    <Import Project="$(VCTargetsPath)\Microsoft.CPP.UpgradeFromVC60.props" Condition="'$(Configuration)|$(Platform)'=='Unicode Debug Static|Win32' and (exists('$(VCTargetsPath)\Microsoft.CPP.UpgradeFromVC60.props'))" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets">
-    <Import Project="$(LocalAppData)\Microsoft\VisualStudio\10.0\Microsoft.Cpp.$(Platform).user.props" Condition="'$(Configuration)|$(Platform)'=='Unicode Debug Static|X64' and (exists('$(LocalAppData)\Microsoft\VisualStudio\10.0\Microsoft.Cpp.$(Platform).user.props'))" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets">
-    <Import Project="$(VCTargetsPath)\Microsoft.CPP.UpgradeFromVC60.props" Condition="'$(Configuration)|$(Platform)'=='Unicode Debug Static|X64' and (exists('$(VCTargetsPath)\Microsoft.CPP.UpgradeFromVC60.props'))" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets">
-    <Import Project="$(LocalAppData)\Microsoft\VisualStudio\10.0\Microsoft.Cpp.$(Platform).user.props" Condition="'$(Configuration)|$(Platform)'=='Unicode Release|Win32' and (exists('$(LocalAppData)\Microsoft\VisualStudio\10.0\Microsoft.Cpp.$(Platform).user.props'))" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets">
-    <Import Project="$(VCTargetsPath)\Microsoft.CPP.UpgradeFromVC60.props" Condition="'$(Configuration)|$(Platform)'=='Unicode Release|Win32' and (exists('$(VCTargetsPath)\Microsoft.CPP.UpgradeFromVC60.props'))" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets">
-    <Import Project="$(LocalAppData)\Microsoft\VisualStudio\10.0\Microsoft.Cpp.$(Platform).user.props" Condition="'$(Configuration)|$(Platform)'=='Unicode Release|X64' and (exists('$(LocalAppData)\Microsoft\VisualStudio\10.0\Microsoft.Cpp.$(Platform).user.props'))" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets">
-    <Import Project="$(VCTargetsPath)\Microsoft.CPP.UpgradeFromVC60.props" Condition="'$(Configuration)|$(Platform)'=='Unicode Release|X64' and (exists('$(VCTargetsPath)\Microsoft.CPP.UpgradeFromVC60.props'))" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets">
-    <Import Project="$(LocalAppData)\Microsoft\VisualStudio\10.0\Microsoft.Cpp.$(Platform).user.props" Condition="'$(Configuration)|$(Platform)'=='Unicode Release Static|Win32' and (exists('$(LocalAppData)\Microsoft\VisualStudio\10.0\Microsoft.Cpp.$(Platform).user.props'))" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets">
-    <Import Project="$(VCTargetsPath)\Microsoft.CPP.UpgradeFromVC60.props" Condition="'$(Configuration)|$(Platform)'=='Unicode Release Static|Win32' and (exists('$(VCTargetsPath)\Microsoft.CPP.UpgradeFromVC60.props'))" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets">
-    <Import Project="$(LocalAppData)\Microsoft\VisualStudio\10.0\Microsoft.Cpp.$(Platform).user.props" Condition="'$(Configuration)|$(Platform)'=='Unicode Release Static|X64' and (exists('$(LocalAppData)\Microsoft\VisualStudio\10.0\Microsoft.Cpp.$(Platform).user.props'))" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets">
-    <Import Project="$(VCTargetsPath)\Microsoft.CPP.UpgradeFromVC60.props" Condition="'$(Configuration)|$(Platform)'=='Unicode Release Static|X64' and (exists('$(VCTargetsPath)\Microsoft.CPP.UpgradeFromVC60.props'))" />
-  </ImportGroup>
+  <Import Condition="Exists('$(VCTargetsPath)\Microsoft.Cpp.props')" Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>..\$(Configuration)\</OutDir>
@@ -722,7 +624,7 @@
     <None Include="res\TrayMenu.ico" />
     <None Include="res\TrayMenu.rc2" />
   </ItemGroup>
-  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <Import Condition="Exists('$(VCTargetsPath)\Microsoft.Cpp.targets')" Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
 </Project>
