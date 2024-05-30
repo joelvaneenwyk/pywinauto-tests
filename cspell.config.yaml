@@ -1,0 +1,11 @@
+version: "0.2"
+ignorePaths: []
+dictionaryDefinitions:
+  - name: cspell-pywinauto-tests-dictionary
+    path: ./.cspell/cspell-pywinauto-tests-dictionary.txt
+    addWords: true
+dictionaries:
+  - cspell-pywinauto-tests-dictionary
+words: []
+ignoreWords: []
+import: []
