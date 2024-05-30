@@ -19,3 +19,10 @@
 **/source/Makefile
 **/mousebuttons
 **/send_keys_test_app
+
+*.nuget.dgspec.json
+*.nuget.g.props
+*.nuget.g.targets
+project.assets.json
+project.nuget.cache
+*.upgrade.json
