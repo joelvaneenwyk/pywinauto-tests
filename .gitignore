@@ -1,4 +1,11 @@
+#
+# pywinauto-tests | Ignore list
+#
+
 /.sarif/
+/target/
+
+.idea/
 
 /*.log.txt
 .gdn/
@@ -30,3 +37,11 @@
 project.assets.json
 project.nuget.cache
 *.upgrade.json
+*.tlog
+*.ilk
+*.obj
+*.exe
+*.pch
+*.res
+*.log
+*.pdb
