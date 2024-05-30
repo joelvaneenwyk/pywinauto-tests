@@ -1,5 +1,9 @@
 /.sarif/
 
+/*.log.txt
+.gdn/
+.build/
+
 .vs/
 
 *.vcxproj.user

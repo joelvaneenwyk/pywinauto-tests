@@ -38,9 +38,6 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <NoWarn>CS1591;$(NoWarn)</NoWarn>
-        <RuntimeIdentifiers>win-x64</RuntimeIdentifiers>
-        <Platforms>AnyCPU;x86;x64</Platforms>
         <TargetFramework>net48</TargetFramework>
     </PropertyGroup>
 
