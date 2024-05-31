@@ -2,6 +2,11 @@
 # pywinauto-tests | Ignore list
 #
 
+/MANIFEST
+
+.vscode/c_cpp_properties.json
+.vscode/launch.json
+
 /.sarif/
 /target/
 /bin/
@@ -47,3 +52,10 @@ project.nuget.cache
 *.res
 *.log
 *.pdb
+
+## Qt
+
+.qtc_clangd/
+.cache/
+**/build/**/Makefile*
+*.pro.user
